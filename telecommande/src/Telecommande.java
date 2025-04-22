@@ -61,9 +61,12 @@ public class Telecommande {
     }
 
     public String toString(){
-        String res ="";
+        String res = "";
         for (Lampe l : lampes) {
             res += l.toString() + "\n";
+        }
+        for (Hifi h : hifi) {
+            res += h.toString() + "\n";
         }
         return res;
     }
