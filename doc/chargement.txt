@@ -1,0 +1,3 @@
+on charge le magasin avec la classe chargeurMagasin 
+puis depuis la class ChargeurMagasin on charge les CD du magasin et 
+depuis la class chargeur CD on cree les d=cd 
