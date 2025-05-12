@@ -1,6 +1,7 @@
 package donnees;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * La classe Magasin represente un magasin qui vend des CDs.</p>
@@ -29,7 +30,7 @@ public class Magasin {
 	 * @param cdAAjouter
 	 *            le cd a ajouter
 	 */
-	public void ajouteCd(CD cdAAjouter) {
+	public void ajouterCD(CD cdAAjouter) {
 		listeCds.add(cdAAjouter);
 	}
 
@@ -39,7 +40,6 @@ public class Magasin {
 	 */
 	public String toString() {
 		String chaineResultat = "";
-		//parcours des Cds
 		for (int i = 0; i < listeCds.size(); i++) {
 			chaineResultat += listeCds.get(i);
 		}
@@ -69,11 +69,39 @@ public class Magasin {
 	}
 
 	public void trierAriste() {
-		throw new Error("Not implemented yet");
+		ArrayList<CD> newtri = new ArrayList();
+		ArrayList<CD> temp = new ArrayList(listeCds);
+
+		while(temp.size()>0) {
+			int indicemin = 0;
+			for (int i = 0; i < temp.size(); i++) {
+				if(temp.get(i).comparerArtiste(temp.get(indicemin)) <0){
+					indicemin = i;
+				}
+			}
+			newtri.add(temp.remove(indicemin));
+		}
+		listeCds = newtri;
 	}
 
 	public void trierAlbum() {
 		throw new Error("Not implemented yet");
+	}
+
+	public void trierTitre(){
+		ArrayList<CD> newtri = new ArrayList();
+		ArrayList<CD> temp = new ArrayList(listeCds);
+
+		while(temp.size()>0) {
+			int indicemin = 0;
+			for (int i = 0; i < temp.size(); i++) {
+				if(temp.get(i).comparerTitre(temp.get(indicemin)) <0){
+					indicemin = i;
+				}
+			}
+			newtri.add(temp.remove(indicemin));
+		}
+		listeCds = newtri;
 	}
 
 
