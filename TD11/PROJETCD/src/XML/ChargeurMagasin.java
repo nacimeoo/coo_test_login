@@ -54,7 +54,7 @@ public class ChargeurMagasin {
 		for (File fichier : fichiers) {
 			CD lecture = lireCd(fichier);
 			if (lecture != null) {
-				magasin.ajouteCd(lecture);
+				magasin.ajouterCD(lecture);
 			}
 		}
 		return (magasin);
