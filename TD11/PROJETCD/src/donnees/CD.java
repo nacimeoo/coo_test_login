@@ -72,7 +72,6 @@ public class CD {
 		String r = SEPARATOR;
 		r += this.nomArtiste + " - " + this.nomCD + " (" + pistes.size()
 				+ " pistes)\n";
-		// ajoute les pistes
 		for (int i = 0; i < this.pistes.size(); i++) {
 			InfoPiste piste = pistes.get(i);
 			r += "   ." + numeroPiste(i) + ". " + piste + "\n";
@@ -97,5 +96,19 @@ public class CD {
 		return (resultat);
 	}
 
-	// TODO 
+	public int comparerTitre(CD cd){
+		return this.nomCD.compareTo(cd.nomCD);
+	}
+
+	public int comparerArtiste(CD cd){
+		return this.nomArtiste.compareTo(cd.nomArtiste);
+	}
+
+	public String getTitre() {
+		return this.nomCD;
+	}
+
+	public String getArtiste() {
+		return this.nomArtiste;
+	}
 }
