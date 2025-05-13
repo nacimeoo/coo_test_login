@@ -84,9 +84,7 @@ public class Magasin {
 		listeCds = newtri;
 	}
 
-	public void trierAlbum() {
-		throw new Error("Not implemented yet");
-	}
+
 
 	public void trierTitre(){
 		ArrayList<CD> newtri = new ArrayList();
