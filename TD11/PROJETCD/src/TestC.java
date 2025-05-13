@@ -1,6 +1,5 @@
 import XML.ChargeurMagasin;
-import donnees.CD;
-import donnees.Magasin;
+import donnees.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -22,25 +21,7 @@ public class TestC {
     }
 
     @Test
-    public void testtriCD() {
-        Magasin m = new Magasin();
-
-        CD cd1 = new CD("Artiste1", "Zebra");
-        CD cd2 = new CD("Artiste2", "Beatles");
-        CD cd3 = new CD("Artiste3", "Adele");
-
-        m.ajouterCD(cd1);
-        m.ajouterCD(cd2);
-        m.ajouterCD(cd3);
-
-        m.trierTitre();
-
-        assertEquals("Adele", m.getCd(0).getTitre());
-        assertEquals("Zebra", m.getCd(2).getTitre());
-    }
-
-    @Test
-    public void testtriartiste() {
+    public void testTriArtiste2() {
         Magasin m = new Magasin();
 
         CD cd1 = new CD("AAAA", "Zebra");
@@ -51,11 +32,32 @@ public class TestC {
         m.ajouterCD(cd2);
         m.ajouterCD(cd3);
 
-        m.trierAriste();
+        ComparateurCd comp = new ComparateurArtiste();
+        m.trier(comp);
 
         assertEquals("AAAA", m.getCd(0).getArtiste());
         assertEquals("CCCC", m.getCd(2).getArtiste());
     }
+
+    @Test
+    public void testTriTitre() {
+        Magasin m = new Magasin();
+
+        CD cd1 = new CD("AAAA", "Zebra");
+        CD cd2 = new CD("BBBB", "Beatles");
+        CD cd3 = new CD("CCCC", "Adele");
+
+        m.ajouterCD(cd1);
+        m.ajouterCD(cd2);
+        m.ajouterCD(cd3);
+
+        ComparateurCd comp = new ComparateurAlbum();
+        m.trier(comp);
+
+        assertEquals("Adele", m.getCd(0).getTitre());
+        assertEquals("Zebra", m.getCd(2).getTitre());
+    }
+
 
 
 
