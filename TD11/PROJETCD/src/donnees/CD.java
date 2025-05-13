@@ -96,13 +96,7 @@ public class CD {
 		return (resultat);
 	}
 
-	public int comparerTitre(CD cd){
-		return this.nomCD.compareTo(cd.nomCD);
-	}
 
-	public int comparerArtiste(CD cd){
-		return this.nomArtiste.compareTo(cd.nomArtiste);
-	}
 
 	public String getTitre() {
 		return this.nomCD;
