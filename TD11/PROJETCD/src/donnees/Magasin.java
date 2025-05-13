@@ -68,32 +68,14 @@ public class Magasin {
 		return(res);
 	}
 
-	public void trierAriste() {
+	public void trier(ComparateurCd comp){
 		ArrayList<CD> newtri = new ArrayList();
 		ArrayList<CD> temp = new ArrayList(listeCds);
 
 		while(temp.size()>0) {
 			int indicemin = 0;
 			for (int i = 0; i < temp.size(); i++) {
-				if(temp.get(i).comparerArtiste(temp.get(indicemin)) <0){
-					indicemin = i;
-				}
-			}
-			newtri.add(temp.remove(indicemin));
-		}
-		listeCds = newtri;
-	}
-
-
-
-	public void trierTitre(){
-		ArrayList<CD> newtri = new ArrayList();
-		ArrayList<CD> temp = new ArrayList(listeCds);
-
-		while(temp.size()>0) {
-			int indicemin = 0;
-			for (int i = 0; i < temp.size(); i++) {
-				if(temp.get(i).comparerTitre(temp.get(indicemin)) <0){
+				if (comp.etreAvant(temp.get(i), temp.get(indicemin))) {
 					indicemin = i;
 				}
 			}
